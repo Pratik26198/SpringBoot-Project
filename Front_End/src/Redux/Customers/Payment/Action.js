@@ -49,23 +49,30 @@ import {
 
   export const updatePayment = (reqData) => {
     return async (dispatch) => {
-      console.log("update payment reqData ",reqData)
+      console.log("update payment reqData ", reqData);
       dispatch(updatePaymentRequest());
       try {
         const config = {
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${reqData.jwt}`,
           },
         };
-        const response = await axios.get(`${API_BASE_URL}/api/payments?payment_id=${reqData.paymentId}&order_id=${reqData.orderId}`,config);
-        console.log("updated data",response.data)
+        
+        // Ensure orderId and paymentId are included correctly
+        const response = await axios.get(
+          `${API_BASE_URL}/api/payments?payment_id=${reqData.paymentId}&order_id=${reqData.orderId}`,
+          config
+        );
+  
+        console.log("updated data", response.data);
         dispatch(updatePaymentSuccess(response.data));
       } catch (error) {
         dispatch(updatePaymentFailure(error.message));
       }
     };
   };
+  
 
 export const updatePaymentRequest = () => {
   return {
