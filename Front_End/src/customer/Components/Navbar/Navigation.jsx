@@ -15,7 +15,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { deepPurple } from "@mui/material/colors";
 import { getUser, logout } from "../../../Redux/Auth/Action";
 import { getCart } from "../../../Redux/Customers/Cart/Action";
-import TextField from "@mui/material/TextField";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -80,6 +79,14 @@ export default function Navigation() {
 
   return (
     <div className="bg-white pb-10">
+      <div className="bg-red-300 text-white text-center py-2 text-sm font-semibold">
+        💕 Valentine's Sale! Get 25% off on order above ₹1500, Use code: LOVE25
+        + Extra 5% off on Prepaid Orders.! ❤️
+        <Link to="/women/rings/engagment" className="underline ml-2">
+          Shop Now
+        </Link>
+      </div>
+
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -246,7 +253,6 @@ export default function Navigation() {
       </Transition.Root>
 
       <header className="relative bg-white">
-
         <nav aria-label="Top" className="mx-auto">
           <div className="border-b border-gray-200">
             <div className="flex h-16 items-center px-11">
@@ -391,16 +397,6 @@ export default function Navigation() {
                     </Popover>
                   ))}
 
-                  {/* {navigation.pages.map((page) => (
-                    <a
-                      key={page.name}
-                      href={page.href}
-                      className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
-                    >
-                      {page.name}
-                    </a>
-                  ))} */}
-
                   {navigation.pages.map((page) => {
                     console.log(`Rendering page link: ${page.href}`);
                     return (
@@ -435,15 +431,7 @@ export default function Navigation() {
                       >
                         {auth.user?.firstName[0].toUpperCase()}
                       </Avatar>
-                      {/* <Button
-                        id="basic-button"
-                        aria-controls={open ? "basic-menu" : undefined}
-                        aria-haspopup="true"
-                        aria-expanded={open ? "true" : undefined}
-                        onClick={handleUserClick}
-                      >
-                        Dashboard
-                      </Button> */}
+
                       <Menu
                         id="basic-menu"
                         anchorEl={anchorEl}

@@ -3,6 +3,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { homeCarouselData } from "./HomeCaroselData";
 import { useNavigate } from "react-router-dom";
+import "./Carousel.css"; // Import the CSS file for styling
 
 const handleDragStart = (e) => e.preventDefault();
 
@@ -26,7 +27,6 @@ const HomeCarousel = () => {
         className="cursor-pointer rounded-md carousel-video"
         onClick={() => navigate(item.path)}
         src={item.src}
-        //controls
         autoPlay
         muted
         loop

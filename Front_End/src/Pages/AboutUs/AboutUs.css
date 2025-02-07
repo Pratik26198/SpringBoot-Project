@@ -1,76 +1,80 @@
 .about-container {
-    font-family: "Georgia", serif; /* A more formal and royal font */
-    color: #4d4d4d; /* Neutral dark text color */
-    background-color: #fffdf3; /* Soft ivory background for a royal feel */
-    padding: 2rem 0; /* Add padding for spacing */
+    font-family: "Georgia", serif;
+    color: #4d4d4d; 
+    background-color: #fffdf3; 
+    /* padding: 2rem 0;  */
   }
   
   .about-banner {
-    background: linear-gradient(to right, #d4af37, #f7e8b6); /* Royal golden gradient */
+    background: linear-gradient(to right, #fbc2ea, #f3d2e5); 
     text-align: center;
-    padding: 4rem; /* More padding for grandeur */
-    border-bottom: 5px solid #a37a2c; /* Deep golden border for separation */
+    padding: 4rem 0; 
+    /* margin: 0; */
+    /* padding: 0; */
+    border-bottom: 5px solid #850e66; 
   }
   
   .about-banner h1 {
-    font-size: 4rem; /* Larger font size for prominence */
-    color: #a37a2c; /* Deep gold for the heading */
-    font-weight: bold; /* Bold title */
-    letter-spacing: 2px; /* Add spacing for a royal effect */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); /* Luxurious shadow effect */
+    margin: 0;
+    padding: 0;
+    font-size: 4rem; 
+    color: #850e66; 
+    font-weight: bold;
+    letter-spacing: 2px; 
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2); 
   }
   
   .about-banner p {
     font-size: 1.5rem;
-    color: #5a5a5a; /* Complementary neutral color */
-    font-style: italic; /* Elegant italicized text */
+    color: #5a5a5a;
+    font-style: italic; 
     margin-top: 1rem;
   }
   
   .about-content {
-    padding: 3rem 10%; /* Generous padding for spaciousness */
-    line-height: 2; /* Enhanced readability */
-    background: linear-gradient(to bottom, #fefcf4, #f7e8b6); /* Subtle golden background */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle royal shadow */
-    border-radius: 12px; /* Softer rounded corners */
-    margin-top: -2rem; /* Overlap the banner slightly for design appeal */
+    padding: 3rem 10%; 
+    line-height: 2; 
+    background: linear-gradient(to bottom, #fcfcfc, #f5daed); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    border-radius: 12px;
+    margin-top: -2rem; 
   }
   
   .about-content h2 {
     margin-top: 3rem;
-    font-size: 2.5rem; /* Larger heading font size */
-    color: #a37a2c; /* Royal golden heading color */
+    font-size: 2.5rem;
+    color: #850e66; 
     font-weight: bold;
-    text-transform: uppercase; /* Royal uppercase styling */
-    border-bottom: 3px solid #a37a2c; /* Golden underline */
+    text-transform: uppercase; 
+    border-bottom: 3px solid #850e66; 
     display: inline-block;
     padding-bottom: 0.5rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* Slight shadow for depth */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); 
   }
   
   .about-content p {
-    font-size: 1.3rem; /* Slightly larger paragraph font */
+    font-size: 1.3rem;
     margin: 1.5rem 0;
     color: #4d4d4d;
   }
   
   .about-content ul {
-    list-style-type: none; /* No default bullets */
+    list-style-type: none;
     padding-left: 0;
     margin-top: 2rem;
   }
   
   .about-content li {
     margin: 0.8rem 0;
-    font-size: 1.2rem; /* Larger font for list items */
-    color: #5a5a5a; /* Elegant neutral tone */
-    position: relative; /* Position for custom bullet */
+    font-size: 1.2rem; 
+    color: #5a5a5a; 
+    position: relative; 
     padding-left: 1.5rem;
   }
   
   .about-content li::before {
-    content: "★"; /* Use a golden star as the bullet */
-    color: #d4af37; /* Golden bullet color */
+    content: "★"; 
+    color: #850e66;
     font-size: 1.2rem;
     position: absolute;
     left: 0;
@@ -78,14 +82,14 @@
   }
   
   .about-content a {
-    color: #d4af37; /* Golden links */
+    color:  #850e66;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s;
   }
   
   .about-content a:hover {
-    color: #a37a2c; /* Darker gold on hover */
+    color: #850e66; 
     text-decoration: underline;
   }
   

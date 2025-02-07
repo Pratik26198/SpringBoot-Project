@@ -8,8 +8,7 @@ const AdminRoutes = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<AdminPannel />}></Route>
-        {/* <Route path="/demo" element={<DemoAdmin />}></Route> */}
+        <Route path="/" element={<AdminPannel />}></Route> 
       </Routes>
     </div>
   );

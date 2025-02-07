@@ -32,10 +32,7 @@ const HomeProductSection = ({ section, data }) => {
       <HomeProductCard product={item} />
     </div>
   ));
-
-  // const slideInFromRight = (t) => {
-  //   return `translateX(${100 - t * 100}%)`;
-  // };
+ 
 
   return (
     <div className="relative px-4 sm:px-6 lg:px-8 ">

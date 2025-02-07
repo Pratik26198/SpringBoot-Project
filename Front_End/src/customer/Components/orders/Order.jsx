@@ -6,10 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getOrderHistory } from "../../../Redux/Customers/Order/Action";
 
 const orderStatus = [
-  { label: "On The Way", value: "onTheWay" },
+  { label: "Pending", value: "pending" },
   { label: "Delivered", value: "delevered" },
-  { label: "Cancelled", value: "cancelled" },
-  { label: "Returned", vlue: "returned" },
+  { label: "Confirmed", value: "conformed" },
+  { label: "Shipped", vlue: "shipped" },
+  { label: "Cancelled", vlue: "cancelled" }
 ];
 
 const Order = () => {

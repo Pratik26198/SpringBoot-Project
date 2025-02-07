@@ -1,16 +1,12 @@
 import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
 import { useNavigate, useParams } from "react-router-dom";
-import ProductReviewCard from "./ProductReviewCard";
-import { Box, Button, Grid, LinearProgress, Rating } from "@mui/material";
-import HomeProductCard from "../../Home/HomeProductCard";
+import { Button, Rating } from "@mui/material";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { findProductById } from "../../../../Redux/Customers/Product/Action";
 import { addItemToCart } from "../../../../Redux/Customers/Cart/Action";
 import { getAllReviews } from "../../../../Redux/Customers/Review/Action";
-// import { lengha_page1 } from "../../../../Data/Women/LenghaCholi";
-// import { gounsPage1 } from "../../../../Data/Gouns/gouns";
 
 const product = {
   name: "Diamond",
@@ -23,19 +19,15 @@ const product = {
   images: [
     {
       src: "https://i.pinimg.com/474x/fa/88/1a/fa881afc44cb8914459a3a6a392cb16d.jpg",
-      
     },
     {
       src: "https://i.pinimg.com/736x/a8/fc/9a/a8fc9af8137bec4b51bf7b22726a0255.jpg",
-       
     },
     {
       src: "https://static2.bigstockphoto.com/3/1/2/large1500/213093691.jpg",
-      
     },
     {
       src: "https://img.freepik.com/premium-photo/portrait-young-gorgeous-woman-dressed-jewelry-set-necklace-ring-bracelet-earrings-blue-eyed-model-is-demonstrating-attractive-makeup-manicure-glittered-red-background_353119-77.jpg",
-       
     },
   ],
   colors: [
@@ -49,7 +41,7 @@ const product = {
     { name: "L", inStock: true },
   ],
   description:
-    'The Radiant Elegance Jewelry Set allows you to express your unique style and sophistication effortlessly. With three stunning options, you can shine at every occasion. Feeling bold? Adorn yourself with our shimmering gold necklace. Want to be the epitome of grace? Our silver bracelet adds timeless charm. Looking for a dash of glamour? Our diamond-studded earrings are here to steal the spotlight.',
+    "The Radiant Elegance Jewelry Set allows you to express your unique style and sophistication effortlessly. With three stunning options, you can shine at every occasion. Feeling bold? Adorn yourself with our shimmering gold necklace. Want to be the epitome of grace? Our silver bracelet adds timeless charm. Looking for a dash of glamour? Our diamond-studded earrings are here to steal the spotlight.",
   highlights: [
     "Handcrafted by Skilled Artisans",
     "Exclusive Gemstone Cuts and Designs",
@@ -73,7 +65,6 @@ export default function ProductDetails() {
   const { customersProduct } = useSelector((store) => store);
   const { productId } = useParams();
   const jwt = localStorage.getItem("jwt");
-  // console.log("param",productId,customersProduct.product)
 
   const handleSetActiveImage = (image) => {
     setActiveImage(image);
@@ -329,176 +320,6 @@ export default function ProductDetails() {
             </div>
           </div>
         </section>
-
-        {/* rating and review section */}
-        <section className="">
-          <h1 className="font-semibold text-lg pb-4">
-            Recent Review & Ratings
-          </h1>
-
-          <div className="border p-5">
-            <Grid container spacing={7}>
-              <Grid item xs={7}>
-                <div className="space-y-5">
-                  {customersProduct.product?.reviews.map((item, i) => (
-                    <ProductReviewCard item={item} />
-                  ))}
-                </div>
-              </Grid>
-
-              <Grid item xs={5}>
-                <h1 className="text-xl font-semibold pb-1">Product Ratings</h1>
-                <div className="flex items-center space-x-3 pb-10">
-                  <Rating
-                    name="read-only"
-                    value={4.6}
-                    precision={0.5}
-                    readOnly
-                  />
-
-                  <p className="opacity-60">42807 Ratings</p>
-                </div>
-                <Box>
-                  <Grid
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                    gap={2}
-                  >
-                    <Grid xs={2}>
-                      <p className="p-0">Excellent</p>
-                    </Grid>
-                    <Grid xs={7}>
-                      <LinearProgress
-                        className=""
-                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
-                        variant="determinate"
-                        value={40}
-                        color="success"
-                      />
-                    </Grid>
-                    <Grid xs={2}>
-                      <p className="opacity-50 p-2">19259</p>
-                    </Grid>
-                  </Grid>
-                </Box>
-                <Box>
-                  <Grid
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                    gap={2}
-                  >
-                    <Grid xs={2}>
-                      <p className="p-0">Very Good</p>
-                    </Grid>
-                    <Grid xs={7}>
-                      <LinearProgress
-                        className=""
-                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
-                        variant="determinate"
-                        value={30}
-                        color="success"
-                      />
-                    </Grid>
-                    <Grid xs={2}>
-                      <p className="opacity-50 p-2">19259</p>
-                    </Grid>
-                  </Grid>
-                </Box>
-                <Box>
-                  <Grid
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                    gap={2}
-                  >
-                    <Grid xs={2}>
-                      <p className="p-0">Good</p>
-                    </Grid>
-                    <Grid xs={7}>
-                      <LinearProgress
-                        className="bg-[#885c0a]"
-                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
-                        variant="determinate"
-                        value={25}
-                        color="orange"
-                      />
-                    </Grid>
-                    <Grid xs={2}>
-                      <p className="opacity-50 p-2">19259</p>
-                    </Grid>
-                  </Grid>
-                </Box>
-                <Box>
-                  <Grid
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                    gap={2}
-                  >
-                    <Grid xs={2}>
-                      <p className="p-0">Avarage</p>
-                    </Grid>
-                    <Grid xs={7}>
-                      <LinearProgress
-                        className=""
-                        sx={{
-                          bgcolor: "#d0d0d0",
-                          borderRadius: 4,
-                          height: 7,
-                          "& .MuiLinearProgress-bar": {
-                            bgcolor: "#885c0a", // stroke color
-                          },
-                        }}
-                        variant="determinate"
-                        value={21}
-                        color="success"
-                      />
-                    </Grid>
-                    <Grid xs={2}>
-                      <p className="opacity-50 p-2">19259</p>
-                    </Grid>
-                  </Grid>
-                </Box>
-                <Box>
-                  <Grid
-                    container
-                    justifyContent="center"
-                    alignItems="center"
-                    gap={2}
-                  >
-                    <Grid xs={2}>
-                      <p className="p-0">Poor</p>
-                    </Grid>
-                    <Grid xs={7}>
-                      <LinearProgress
-                        className=""
-                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
-                        variant="determinate"
-                        value={10}
-                        color="error"
-                      />
-                    </Grid>
-                    <Grid xs={2}>
-                      <p className="opacity-50 p-2">19259</p>
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Grid>
-            </Grid>
-          </div>
-        </section>
-
-        {/* similer product */}
-        {/* <section className=" pt-10">
-          <h1 className="py-5 text-xl font-bold">Similer Products</h1>
-          <div className="flex flex-wrap space-y-5">
-            {gounsPage1 .map((item) => (
-              <HomeProductCard product={item} />
-            ))}
-          </div>
-        </section> */}
       </div>
     </div>
   );

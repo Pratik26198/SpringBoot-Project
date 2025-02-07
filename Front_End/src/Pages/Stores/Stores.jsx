@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css"; // Leaflet styles
 import L from "leaflet";
 import "./Stores.css"; // Add custom styles
+import Navbar from "../../customer/Components/Navbar/Navigation";
 
 // Fix default marker icon issues in Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -67,7 +68,7 @@ const storeLocations = [
 
 const Stores = () => {
   return (
-    <div className="stores-container">
+    <><div> <Navbar /></div><div className="stores-container">
       <h1 className="stores-title">Our Stores</h1>
       <p className="stores-description">
         Visit any of our stores to explore our exquisite collection of jewelry in person.
@@ -82,8 +83,7 @@ const Stores = () => {
         {/* OpenStreetMap tiles */}
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
 
         {/* Add markers for each store */}
         {storeLocations.map((store, index) => (
@@ -96,7 +96,7 @@ const Stores = () => {
           </Marker>
         ))}
       </MapContainer>
-    </div>
+    </div></>
   );
 };
 

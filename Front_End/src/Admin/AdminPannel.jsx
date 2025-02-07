@@ -3,8 +3,7 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
+import List from "@mui/material/List"; 
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemButton from "@mui/material/ListItemButton";
@@ -17,8 +16,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import { customTheme } from "./them/customeThem";
 import AdminNavbar from "./Navigation/AdminNavbar";
 import Dashboard from "./Views/Admin";
-import { Route, Routes, useNavigate } from "react-router-dom";
-import DemoAdmin from "./Views/DemoAdmin";
+import { Route, Routes, useNavigate } from "react-router-dom"; 
 import CreateProductForm from "./componets/createProduct/CreateProductFrom";
 
 import "./AdminPannel.css";
@@ -33,10 +31,7 @@ const menu = [
   {name:"Dashboard",path:"/admin"},
   {name:"Products",path:"/admin/products"},
   {name:"Customers",path:"/admin/customers"},
-  {name:"Orders",path:"/admin/orders"},
-  {name:"Total Earnings",path:"/admin"},
-  {name:"Weekly Overview",path:"/admin"},
-  {name:"Monthly Overview",path:"/admin"},
+  {name:"Orders",path:"/admin/orders"}, 
   {name:"Add Product",path:"/admin/product/create"},
 ];
 
@@ -64,20 +59,6 @@ export default function AdminPannel() {
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
               <ListItemText primary={item.name} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-
-      <List sx={{ position: "absolute", bottom: 0, width: "100%" }}>
-        <Divider />
-        {["Account", "Request"].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -135,8 +116,7 @@ export default function AdminPannel() {
             <Route path="/product/update/:productId" element={<UpdateProductForm/>}></Route>
             <Route path="/products" element={<ProductsTable/>}></Route>
             <Route path="/orders" element={<OrdersTable/>}></Route>
-            <Route path="/customers" element={<Customers/>}></Route>
-            <Route path="/demo" element={<DemoAdmin />}></Route>
+            <Route path="/customers" element={<Customers/>}></Route> 
           </Routes>
          
         </Box>

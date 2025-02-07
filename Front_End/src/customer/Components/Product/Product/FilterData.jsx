@@ -17,9 +17,9 @@ export const filters = [
       { value: "white", label: "White" },
       { value: "beige", label: "Beige" },
       { value: "blue", label: "Blue" },
-      { value: "brown", label: "Brown" },
+      { value: "silver", label: "Silver" },
       { value: "green", label: "Green" },
-      { value: "purple", label: "Purple" },
+      { value: "Golden", label: "Golden" },
       {value:"yellow",label:"Yellow"}
     ],
   },

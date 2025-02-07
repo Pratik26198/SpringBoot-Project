@@ -5,9 +5,7 @@ import HomeProductSection from "../customer/Components/Home/HomeProductSection";
 import { womens_rings } from "../Data/womens_rings";
 import { womens_earrings } from "../Data/womens_earrings";
 import { womens_pendants } from "../Data/womens_pendants";
-import { womens_neckles } from "../Data/womens_neckles";
-// import { About } from "../Pages/About.jsx";
-//import About from "../Pages/About.jsx";
+import { womens_neckles } from "../Data/womens_neckles"; 
 import { mens_rings } from "../Data/Mens_rings";
 import { mens_bracelet } from "../Data/Mens_bracelet";
 

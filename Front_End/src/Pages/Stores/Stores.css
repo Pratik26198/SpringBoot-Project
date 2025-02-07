@@ -1,13 +1,13 @@
 .stores-container {
     font-family: "Georgia", serif;
     text-align: center;
-    padding: 2rem;
-    background-color: #fff8e7; /* Light golden background */
+    /* padding: 2rem; */
+    /* background-color: #fff8e7; Light golden background */
   }
   
   .stores-title {
     font-size: 2.5rem;
-    color: #b18c5d; /* Golden color for title */
+    color: #850e66; /* Golden color for title */
     margin-bottom: 1rem;
     text-transform: uppercase;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);

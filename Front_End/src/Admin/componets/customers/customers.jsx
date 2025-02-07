@@ -1,7 +1,5 @@
 // ** MUI Imports
-import Box from '@mui/material/Box'
 import Card from '@mui/material/Card'
-import Chip from '@mui/material/Chip'
 import Table from '@mui/material/Table'
 import TableRow from '@mui/material/TableRow'
 import TableHead from '@mui/material/TableHead'
@@ -9,13 +7,11 @@ import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
 import Typography from '@mui/material/Typography'
 import TableContainer from '@mui/material/TableContainer'
-import { Avatar, CardHeader, Pagination } from '@mui/material'
+import { Avatar, CardHeader } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { getAllCustomers } from '../../../Redux/Auth/Action'
 import { useDispatch, useSelector } from "react-redux";
-
-
 
 const Customers = () => {
   const navigate=useNavigate();
@@ -45,7 +41,6 @@ const Customers = () => {
             <TableCell>Image</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Email</TableCell>
-              
             </TableRow>
           </TableHead>
           <TableBody>
@@ -54,10 +49,6 @@ const Customers = () => {
                 <TableCell> <Avatar >{item.firstName[0].toUpperCase()}</Avatar> </TableCell>
                 <TableCell>{item.firstName} {item.lastName}</TableCell>
                 <TableCell>{item.email}</TableCell>
-                
-                
-               
-               
               </TableRow>
             ))}
           </TableBody>
@@ -66,5 +57,4 @@ const Customers = () => {
     </Card>
   )
 }
-
 export default Customers
