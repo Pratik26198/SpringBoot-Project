@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import './ScrollToTopButton.css';
-import { debounce } from './debounce'; // Debouncing utility
-import { FaArrowUp } from 'react-icons/fa'; // Or use your SVG
+import { debounce } from './debounce'; 
+import { FaArrowUp } from 'react-icons/fa'; 
 
 const ScrollToTopButton = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     // Determine button visibility based on scroll position
     const toggleVisibility = () => {
-        const threshold = window.innerWidth < 768 ? 200 : 300; // Adjust threshold for small screens
+        const threshold = window.innerWidth < 768 ? 200 : 300; 
         if (window.scrollY > threshold) {
             setIsVisible(true);
         } else {

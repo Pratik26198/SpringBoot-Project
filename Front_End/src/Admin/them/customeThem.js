@@ -2,7 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 const customTheme = createTheme({
   palette: {
-    mode: "dark", // Set the custom color mode name here
+    mode: "dark", 
      
     background: {
       default: '',

@@ -1,8 +1,8 @@
 import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import "leaflet/dist/leaflet.css"; // Leaflet styles
+import "leaflet/dist/leaflet.css";
 import L from "leaflet";
-import "./Stores.css"; // Add custom styles
+import "./Stores.css";
 import Navbar from "../../customer/Components/Navbar/Navigation";
 
 // Fix default marker icon issues in Leaflet
@@ -13,7 +13,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
-// Store locations with details
+
 const storeLocations = [
   {
     name: "Elegant - Mumbai",
@@ -33,7 +33,7 @@ const storeLocations = [
     lat: 12.9716,
     lng: 77.5946,
   },
-  // USA Stores
+  
   {
     name: "Elegant - New York",
     address: "500 5th Avenue, Manhattan, New York, NY 10110",
@@ -76,8 +76,8 @@ const Stores = () => {
 
       {/* Map container */}
       <MapContainer
-        center={[28.6139, 77.209]} // Default center: New Delhi
-        zoom={5} // Zoom level
+        center={[28.6139, 77.209]} 
+        zoom={5} 
         style={{ height: "500px", width: "100%" }}
       >
         {/* OpenStreetMap tiles */}

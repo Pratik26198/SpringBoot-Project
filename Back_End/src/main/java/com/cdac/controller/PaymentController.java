@@ -88,6 +88,7 @@ public class PaymentController {
 
 		      // Set the callback URL and method
 		      paymentLinkRequest.put("callback_url","http://localhost:3000/payment-success?order_id="+orderId);
+		    //  paymentLinkRequest.put("callback_url","http://elegantjewellary.vercel.app/payment-success?order_id="+orderId);
 		      paymentLinkRequest.put("callback_method","get");
 
 		      // Create the payment link using the paymentLink.create() method
