@@ -13,7 +13,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
   const { auth } = useSelector((store) => store);
   const [selectedAddress, setSelectedAdress] = useState(null);
 
-  // Form Data State
+ 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,7 +24,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
     phoneNumber: ""
   });
 
-  // Error State
+ 
   const [errors, setErrors] = useState({});
 
   // Validation Logic
@@ -59,23 +59,23 @@ export default function AddDeliveryAddressForm({ handleNext }) {
     setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
   };
 
-  // Handle Input Change
+ 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Validate on change
+   
     validateField(name, value);
   };
 
-  // Handle Form Submission
+  
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Final Validation before submission
+   
     Object.keys(formData).forEach((field) => validateField(field, formData[field]));
 
-    // If there are any errors, stop submission
+   
     if (Object.values(errors).some((err) => err) || Object.values(formData).some((val) => val === "")) {
       return;
     }
