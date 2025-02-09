@@ -3,7 +3,6 @@ import { Grid, TextField, Button, Box } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrder } from "../../../Redux/Customers/Order/Action";
-import userEvent from "@testing-library/user-event";
 import AddressCard from "../adreess/AdreessCard";
 import { useState } from "react";
 
@@ -14,43 +13,102 @@ export default function AddDeliveryAddressForm({ handleNext }) {
   const { auth } = useSelector((store) => store);
   const [selectedAddress, setSelectedAdress] = useState(null);
 
-  // console.log("auth", auth);
+  // Form Data State
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    phoneNumber: ""
+  });
 
+  // Error State
+  const [errors, setErrors] = useState({});
+
+  // Validation Logic
+  const validateField = (name, value) => {
+    let error = "";
+
+    if (name === "firstName" || name === "lastName") {
+      if (!value.trim()) error = "This field is required";
+      else if (!/^[A-Za-z]+$/.test(value)) error = "Only letters allowed";
+    }
+
+    if (name === "address") {
+      if (!value.trim()) error = "Address is required";
+      else if (value.length < 10) error = "Address must be at least 10 characters";
+    }
+
+    if (name === "city" || name === "state") {
+      if (!value.trim()) error = "This field is required";
+      else if (!/^[A-Za-z\s]+$/.test(value)) error = "Only letters allowed";
+    }
+
+    if (name === "zip") {
+      if (!value.trim()) error = "Zip code is required";
+      else if (!/^\d{5,10}$/.test(value)) error = "Zip must be 5-10 digits";
+    }
+
+    if (name === "phoneNumber") {
+      if (!value.trim()) error = "Phone number is required";
+      else if (!/^\d{10,15}$/.test(value)) error = "Phone number must be 10-15 digits";
+    }
+
+    setErrors((prevErrors) => ({ ...prevErrors, [name]: error }));
+  };
+
+  // Handle Input Change
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+
+    // Validate on change
+    validateField(name, value);
+  };
+
+  // Handle Form Submission
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
+
+    // Final Validation before submission
+    Object.keys(formData).forEach((field) => validateField(field, formData[field]));
+
+    // If there are any errors, stop submission
+    if (Object.values(errors).some((err) => err) || Object.values(formData).some((val) => val === "")) {
+      return;
+    }
 
     const address = {
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      streetAddress: data.get("address"),
-      city: data.get("city"),
-      state: data.get("state"),
-      zipCode: data.get("zip"),
-      mobile: data.get("phoneNumber"),
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      streetAddress: formData.address,
+      city: formData.city,
+      state: formData.state,
+      zipCode: formData.zip,
+      mobile: formData.phoneNumber
     };
 
     dispatch(createOrder({ address, jwt, navigate }));
-    // after perfoming all the opration
     handleNext();
   };
 
   const handleCreateOrder = (item) => {
-    dispatch(createOrder({ address:item, jwt, navigate }));
+    dispatch(createOrder({ address: item, jwt, navigate }));
     handleNext();
   };
 
   return (
     <Grid container spacing={4}>
       <Grid item xs={12} lg={5}>
-        <Box className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll ">
+        <Box className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll">
           {auth.user?.addresses.map((item) => (
             <div
+              key={item.id}
               onClick={() => setSelectedAdress(item)}
               className="p-5 py-7 border-b cursor-pointer"
             >
-              {" "}
               <AddressCard address={item} />
               {selectedAddress?.id === item.id && (
                 <Button
@@ -58,9 +116,9 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   size="large"
                   variant="contained"
                   color="primary"
-                  onClick={()=>handleCreateOrder(item)}
+                  onClick={() => handleCreateOrder(item)}
                 >
-                  Deliverd Here
+                  Deliver Here
                 </Button>
               )}
             </div>
@@ -78,7 +136,10 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   name="firstName"
                   label="First Name"
                   fullWidth
-                  autoComplete="given-name"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  error={!!errors.firstName}
+                  helperText={errors.firstName}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -88,7 +149,10 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   name="lastName"
                   label="Last Name"
                   fullWidth
-                  autoComplete="given-name"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  error={!!errors.lastName}
+                  helperText={errors.lastName}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -98,9 +162,12 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   name="address"
                   label="Address"
                   fullWidth
-                  autoComplete="shipping address"
                   multiline
                   rows={4}
+                  value={formData.address}
+                  onChange={handleChange}
+                  error={!!errors.address}
+                  helperText={errors.address}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -110,7 +177,10 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   name="city"
                   label="City"
                   fullWidth
-                  autoComplete="shipping address-level2"
+                  value={formData.city}
+                  onChange={handleChange}
+                  error={!!errors.city}
+                  helperText={errors.city}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -120,6 +190,10 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   name="state"
                   label="State/Province/Region"
                   fullWidth
+                  value={formData.state}
+                  onChange={handleChange}
+                  error={!!errors.state}
+                  helperText={errors.state}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -129,7 +203,10 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   name="zip"
                   label="Zip / Postal code"
                   fullWidth
-                  autoComplete="shipping postal-code"
+                  value={formData.zip}
+                  onChange={handleChange}
+                  error={!!errors.zip}
+                  helperText={errors.zip}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -139,7 +216,10 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   name="phoneNumber"
                   label="Phone Number"
                   fullWidth
-                  autoComplete="tel"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                  error={!!errors.phoneNumber}
+                  helperText={errors.phoneNumber}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -150,7 +230,7 @@ export default function AddDeliveryAddressForm({ handleNext }) {
                   variant="contained"
                   color="primary"
                 >
-                  Deliverd Here
+                  Deliver Here
                 </Button>
               </Grid>
             </Grid>
