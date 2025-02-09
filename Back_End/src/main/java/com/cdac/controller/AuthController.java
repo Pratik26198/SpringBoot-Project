@@ -36,7 +36,7 @@ public class AuthController {
     private JwtTokenProvider jwtTokenProvider;
     private CustomUserDetails customUserDetails;
     private CartService cartService;
-    private EmailService emailService;  // Inject Email Service
+    private EmailService emailService; 
 
     public AuthController(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtTokenProvider jwtTokenProvider,
                           CustomUserDetails customUserDetails, CartService cartService, EmailService emailService) {
@@ -45,7 +45,7 @@ public class AuthController {
         this.jwtTokenProvider = jwtTokenProvider;
         this.customUserDetails = customUserDetails;
         this.cartService = cartService;
-        this.emailService = emailService;  // Initialize Email Service
+        this.emailService = emailService;  
     }
 
     @PostMapping("/signup")

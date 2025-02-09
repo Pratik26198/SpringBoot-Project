@@ -90,8 +90,8 @@ public class EmailService {
 
             helper.setTo(toEmail);
             helper.setSubject(subject);
-            helper.setText(body, true);  // Enable HTML content
-            helper.setFrom("your_email@gmail.com"); // Ensure the sender's email is set
+            helper.setText(body, true);  
+            helper.setFrom("your_email@gmail.com"); 
 
             mailSender.send(message);
             LOGGER.info("Email sent successfully to " + toEmail);
