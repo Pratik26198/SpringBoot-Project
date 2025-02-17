@@ -26,7 +26,7 @@ const PaymentSuccess = () => {
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const paymentId = urlParams.get("razorpay_payment_id");
-    const orderId = urlParams.get("order_id"); // Ensure correct parameter name
+    const orderId = urlParams.get("order_id");
     
     if (paymentId) {
       setPaymentId(paymentId);
