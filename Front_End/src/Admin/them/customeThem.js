@@ -28,7 +28,7 @@ const darkTheme = createTheme({
 
 const customerTheme = createTheme({
   palette: {
-    mode: "light", // Set the custom color mode name here
+    mode: "light", 
     primary: {
       main: '#9155FD',
     },

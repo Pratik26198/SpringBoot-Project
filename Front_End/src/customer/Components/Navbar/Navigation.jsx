@@ -79,7 +79,7 @@ export default function Navigation() {
 
   return (
     <div className="bg-white pb-10">
-      <div className="bg-red-300 text-white text-center py-2 text-sm font-semibold">
+      <div className="bg-[#e9718b] text-white text-center py-2 text-sm font-semibold">
         💕 Valentine's Sale! Get 25% off on order above ₹1500, Use code: LOVE25
         + Extra 5% off on Prepaid Orders.! ❤️
         <Link to="/women/rings/engagment" className="underline ml-2">
